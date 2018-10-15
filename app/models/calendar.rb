@@ -13,5 +13,8 @@ class Calendar < ActiveRecord::Base
   has_many :openings
 
   # Validations
-  validates :name, presence: true, uniqueness: true
+  with_options presence: true do
+    validates :name, uniqueness: true
+    validates :intervals, numericality: { greater_than: 0 }
+  end
 end
