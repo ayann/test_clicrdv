@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: calendars
+#
+#  id   :integer          not null, primary key
+#  name :string(255)
+#
+
 class Calendar < ActiveRecord::Base
   # Associations
   has_many :interventions
