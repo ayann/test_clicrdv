@@ -20,7 +20,8 @@ class Admin::CalendarsControllerTest < ActionController::TestCase
   test 'should create calendar' do
     assert_difference('Calendar.count') do
       post :create, calendar: {
-        name: @calendar.name + '_bis'
+        name: @calendar.name + '_bis',
+        intervals: [10, 20, 30].sample
       }
     end
 

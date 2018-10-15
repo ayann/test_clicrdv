@@ -11,6 +11,8 @@
 
 one:
   name: 'Calendar One'
+  intervals: <%= [10, 20, 30].sample %>
 
 two:
   name: 'Calendar Two'
+  intervals: <%= [10, 20, 30].sample %>
