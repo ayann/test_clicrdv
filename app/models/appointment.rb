@@ -22,10 +22,29 @@ class Appointment < ActiveRecord::Base
   belongs_to :calendar
   belongs_to :intervention
 
+  delegate :duration, to: :intervention, prefix: true, allow_nil: true
+
   # Validations
-  validates :calendar_id, presence: true
-  validates :intervention_id, presence: true
-  validates :start_at, presence: true
-  validates :end_at, presence: true
-  validates :customer_name, presence: true
+  with_options presence: true do
+    validates :calendar_id
+    validates :intervention_id
+    validates :customer_name
+
+    validates_datetime :start_at, after: :now, on: :create
+    validates_datetime :end_at, after: :start_at
+  end
+
+  before_validation :generate_end_at, if: -> { start_at? }
+
+  # validates :calendar_id, presence: true
+  # validates :intervention_id, presence: true
+  # validates :start_at, presence: true
+  # validates :end_at, presence: true
+  # validates :customer_name, presence: true
+
+  private
+
+  def generate_end_at
+    self.end_at ||= start_at + intervention_duration.to_i.minutes
+  end
 end

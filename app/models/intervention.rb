@@ -21,7 +21,7 @@ class Intervention < ActiveRecord::Base
   # Validations
   with_options presence: true do
     validates :calendar
-    validates :name, uniqueness: { scope: :calendar_id }
     validates :duration, inclusion: 1..60
+    validates :name, uniqueness: { scope: :calendar_id }
   end
 end
