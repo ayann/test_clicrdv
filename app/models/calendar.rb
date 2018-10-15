@@ -2,8 +2,9 @@
 #
 # Table name: calendars
 #
-#  id   :integer          not null, primary key
-#  name :string(255)
+#  id        :integer          not null, primary key
+#  intervals :integer
+#  name      :string(255)
 #
 
 class Calendar < ActiveRecord::Base
