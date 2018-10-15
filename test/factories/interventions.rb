@@ -17,7 +17,7 @@
 FactoryBot.define do
   factory :intervention do
     calendar_id { nil }
-    name { ['Massage', 'Hair remove', 'Consultation'].sample }
+    sequence(:name) { |n| "Intervention #{n}" }
     duration { (10..60).step(10).to_a.sample }
   end
 end
