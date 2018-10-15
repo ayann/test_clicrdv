@@ -48,3 +48,7 @@ group :development do
   gem 'spring'
   gem 'annotate'
 end
+
+group :test do
+  gem 'database_cleaner'
+end
