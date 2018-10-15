@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181015063636) do
+ActiveRecord::Schema.define(version: 20181015070220) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "calendar_id",     limit: 4
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20181015063636) do
   create_table "interventions", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.integer  "duration",    limit: 4
-    t.integer  "price",       limit: 4
     t.integer  "calendar_id", limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
