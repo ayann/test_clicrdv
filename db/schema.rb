@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181015070220) do
+ActiveRecord::Schema.define(version: 20181015114521) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "calendar_id",     limit: 4
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20181015070220) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
+
+  add_index "appointments", ["calendar_id"], name: "index_appointments_on_calendar_id", using: :btree
+  add_index "appointments", ["intervention_id"], name: "index_appointments_on_intervention_id", using: :btree
 
   create_table "calendars", force: :cascade do |t|
     t.string  "name",      limit: 255

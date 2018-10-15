@@ -11,6 +11,11 @@
 #  calendar_id     :integer
 #  intervention_id :integer
 #
+# Indexes
+#
+#  index_appointments_on_calendar_id      (calendar_id)
+#  index_appointments_on_intervention_id  (intervention_id)
+#
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
