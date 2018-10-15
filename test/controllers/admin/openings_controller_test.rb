@@ -18,13 +18,23 @@ class Admin::OpeningsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should create opening' do
-    assert_difference('Opening.count') do
+  test 'should not create opening' do
+    assert_no_difference('Opening.count') do
       post :create, calendar_id: @calendar.id, opening: {
         calendar_id: @opening.calendar_id,
         end_at: @opening.end_at,
         start_at: @opening.start_at
       }
+    end
+  end
+
+  test 'should create opening' do
+    assert_difference('Opening.count') do
+      post(
+        :create,
+        calendar_id: @calendar.id,
+        opening: FactoryBot.attributes_for(:opening).merge(calendar_id: @opening.calendar_id)
+      )
     end
 
     assert_redirected_to admin_calendar_opening_path(@calendar, assigns(:opening))
