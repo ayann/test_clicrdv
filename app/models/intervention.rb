@@ -9,6 +9,10 @@
 #  updated_at  :datetime         not null
 #  calendar_id :integer
 #
+# Indexes
+#
+#  index_interventions_on_calendar_id  (calendar_id)
+#
 
 class Intervention < ActiveRecord::Base
   # Associations
