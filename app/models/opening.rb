@@ -13,4 +13,11 @@
 class Opening < ActiveRecord::Base
   # Association
   belongs_to :calendar
+
+  # Presence validations
+  with_options presence: true do
+    validates :calendar
+    validates :start_at
+    validates :end_at
+  end
 end

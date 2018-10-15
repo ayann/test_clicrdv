@@ -13,7 +13,7 @@
 require 'test_helper'
 
 class OpeningTest < ActiveSupport::TestCase
-  %i[end_at start_at calendar_id].each do |field|
+  %i[end_at start_at calendar].each do |field|
     test "should not save opening without #{field}" do
       opening = openings(:one)
       opening.public_send("#{field}=", nil)
