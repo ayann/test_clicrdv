@@ -9,8 +9,8 @@
 
 class Calendar < ActiveRecord::Base
   # Associations
-  has_many :interventions
-  has_many :openings
+  has_many :interventions, dependent: :destroy
+  has_many :openings, dependent: :destroy
 
   # Validations
   with_options presence: true do
