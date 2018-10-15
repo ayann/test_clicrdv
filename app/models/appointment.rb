@@ -36,12 +36,6 @@ class Appointment < ActiveRecord::Base
 
   before_validation :generate_end_at, if: -> { start_at? }
 
-  # validates :calendar_id, presence: true
-  # validates :intervention_id, presence: true
-  # validates :start_at, presence: true
-  # validates :end_at, presence: true
-  # validates :customer_name, presence: true
-
   private
 
   def generate_end_at
