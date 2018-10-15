@@ -55,6 +55,11 @@ GEM
     debug_inspector (0.0.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_bot (4.11.1)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
+      railties (>= 3.0.0)
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -161,6 +166,7 @@ DEPENDENCIES
   annotate
   byebug
   coffee-rails (~> 4.1.0)
+  factory_bot_rails
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (>= 0.3.13, < 0.5)
