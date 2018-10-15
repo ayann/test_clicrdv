@@ -15,13 +15,11 @@
 one:
   name: 'Intervention One'
   duration: 10
-  price: 10
   calendar_id: 1
   calendar: :one
 
 two:
   name: 'Intervention Two'
   duration: 20
-  price: 20
   calendar_id: 1
   calendar: :one

@@ -15,6 +15,8 @@ class Intervention < ActiveRecord::Base
   belongs_to :calendar
 
   # Validations
-  validates :name, presence: true
-  validates :duration, presence: true, inclusion: 1..60
+  with_options presence: true do
+    validates :name
+    validates :duration, inclusion: 1..60
+  end
 end

@@ -69,6 +69,6 @@ class Admin::InterventionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def intervention_params
-      params.require(:intervention).permit(:name, :duration, :price, :calendar_id)
+      params.require(:intervention).permit(:name, :duration, :calendar_id)
     end
 end

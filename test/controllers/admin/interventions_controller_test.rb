@@ -23,8 +23,7 @@ class Admin::InterventionsControllerTest < ActionController::TestCase
       post :create, intervention: {
         calendar_id: @intervention.calendar_id,
         duration: @intervention.duration,
-        name: @intervention.name,
-        price: @intervention.price
+        name: @intervention.name
       }
     end
 
@@ -45,8 +44,7 @@ class Admin::InterventionsControllerTest < ActionController::TestCase
     patch :update, id: @intervention, intervention: {
       calendar_id: @intervention.calendar_id,
       duration: @intervention.duration,
-      name: @intervention.name,
-      price: @intervention.price
+      name: @intervention.name
     }
     assert_redirected_to admin_intervention_path(assigns(:intervention))
   end
