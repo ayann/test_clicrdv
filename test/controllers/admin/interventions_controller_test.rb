@@ -18,12 +18,22 @@ class Admin::InterventionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should not create intervention' do
+    assert_no_difference('Intervention.count') do
+      post :create, intervention: {
+        calendar_id: @intervention.calendar_id,
+        duration: @intervention.duration,
+        name: @intervention.name
+      }
+    end
+  end
+
   test 'should create intervention' do
     assert_difference('Intervention.count') do
       post :create, intervention: {
         calendar_id: @intervention.calendar_id,
         duration: @intervention.duration,
-        name: @intervention.name
+        name: "Intervention Another"
       }
     end
 
