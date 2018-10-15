@@ -20,4 +20,7 @@ class Opening < ActiveRecord::Base
     validates :start_at
     validates :end_at
   end
+
+  validates_datetime :start_at, on: :create, on_or_after: :now, ignore_usec: true
+  validates_datetime :end_at, after: :start_at
 end
