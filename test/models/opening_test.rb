@@ -41,7 +41,18 @@ class OpeningTest < ActiveSupport::TestCase
   end
 
   test 'invalid with end_at before start_at' do
-    @opening.end_at = @opening.start_at - 4.days
+    @opening.end_at = @opening.start_at - 10.minutes
+    assert_not @opening.save
+  end
+
+  test 'invalid when overlaping' do
+    assert @opening.save
+    @new_opening = @opening.dup
+    assert_not @new_opening.save
+  end
+
+  test 'invalid when end_at and start_at is not a same date' do
+    @opening.end_at = @opening.start_at + 4.days
     assert_not @opening.save
   end
 end
