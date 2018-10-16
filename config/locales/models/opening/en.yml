@@ -1,0 +1,26 @@
+en:
+  activerecord:
+    models:
+      opening:
+        one: Opening
+        other: Openings
+
+    attributes:
+      opening:
+        id: Id
+        end_at: End at
+        start_at: Start at
+        calendar_id: Calendar ID
+        created_at: Created at
+        updated_at: Updated at
+
+    errors:
+      models:
+        opening:
+          attributes:
+            start_at:
+              same_date: Must be the same day as the end
+            end_at:
+              same_date: Must be the same day as the start
+            base:
+              overlapping: Your opening is overlapping a previous one of same calendar
