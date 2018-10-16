@@ -1,0 +1,12 @@
+{
+  "name": "test_clicrdv",
+  "version": "1.0.0",
+  "main": "no",
+  "repository": "git@github.com:ayann/test_clicrdv.git",
+  "author": "Armand NIAMPA <armand@capsens.eu>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootswatch": "^4.1.3"
+  }
+}
