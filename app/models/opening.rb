@@ -29,12 +29,13 @@ class Opening < ActiveRecord::Base
   validate :same_date
   validate :overlapping
 
-  # Scopes
+  # Return overlapping opening
   scope :overlapping, ->(start_at, end_at) do
     args = { start_at: start_at, end_at: end_at }
     where('start_at < :end_at AND end_at > :start_at', **args)
   end
 
+  # Return actives opening, those whose end_at have not expired
   scope :actives, -> { where('end_at > ?', Time.current) }
 
   private
