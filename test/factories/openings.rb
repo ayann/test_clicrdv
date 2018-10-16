@@ -12,8 +12,8 @@
 
 FactoryBot.define do
   factory :opening do
-    start_at { 1.hour.from_now.beginning_of_hour }
-    end_at { 5.hours.from_now.beginning_of_hour }
+    start_at { 1.day.from_now.beginning_of_day }
+    end_at { 1.day.from_now.beginning_of_day + 5.hours }
 
     trait :with_calendar do
       association :calendar, strategy: :build

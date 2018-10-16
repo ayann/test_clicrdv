@@ -42,10 +42,14 @@ class Opening < ActiveRecord::Base
 
   # Custom validation for model, to check overlapping time range
   def overlapping
-    return unless calendar
-    overlapings = calendar.openings.overlapping(start_at, end_at)
-    return unless overlapings.any?
+    return unless calendar && sibling_overlappings?
     errors.add(:base, :overlapping)
+  end
+
+  # Check overlappings siblings
+  def sibling_overlappings?
+    overlappings = calendar.openings.overlapping(start_at, end_at)
+    (persisted? ? overlappings.where.not(id: self) : overlappings).any?
   end
 
   # Custom validation for model, for a day boundaries
