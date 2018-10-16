@@ -35,6 +35,8 @@ class Opening < ActiveRecord::Base
     where('start_at < :end_at AND end_at > :start_at', **args)
   end
 
+  scope :actives, -> { where('end_at > ?', Time.current) }
+
   private
 
   # Custom validation for model, to check overlapping time range
