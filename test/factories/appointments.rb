@@ -20,7 +20,7 @@
 FactoryBot.define do
   factory :appointment do
     customer_name { ['Jean Pierre Foucault', 'John Doe', 'Patrick Sebastien'].sample }
-    start_at { rand(1..4).hour.from_now.beginning_of_hour }
+    start_at { 1.day.from_now.beginning_of_day + rand(1..4).hours }
     calendar_id { nil }
     intervention_id { nil }
   end
