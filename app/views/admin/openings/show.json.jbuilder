@@ -1,1 +1,1 @@
-json.partial! "openings/opening", opening: @opening
+json.partial! 'admin/openings/opening', opening: @opening

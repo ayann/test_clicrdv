@@ -1,1 +1,1 @@
-json.array! @interventions, partial: 'interventions/intervention', as: :intervention
+json.array! @interventions, partial: 'admin/interventions/intervention', as: :intervention

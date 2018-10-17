@@ -1,1 +1,1 @@
-json.array! @openings, partial: 'openings/opening', as: :opening
+json.array! @openings, partial: 'index/openings/opening', as: :opening

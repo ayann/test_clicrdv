@@ -1,1 +1,1 @@
-json.partial! "interventions/intervention", intervention: @intervention
+json.partial! 'admin/interventions/intervention', intervention: @intervention

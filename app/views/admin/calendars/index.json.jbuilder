@@ -1,1 +1,1 @@
-json.array! @calendars, partial: 'calendars/calendar', as: :calendar
+json.array! @calendars, partial: 'admin/calendars/calendar', as: :calendar
