@@ -16,3 +16,4 @@ All notable changes to this project will be documented in this file.
 - Front dependency with Yarn
 - Eager loading with includes options
 - Controller tests suites
+- Availabilities routes http://localhost:3000/calendars/:calendar_id/availabilities/:intervention_id
