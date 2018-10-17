@@ -2,8 +2,8 @@ class CalendarsController < ApplicationController
   def show; end
 
   def availabilities
-    @intervention   = calendar.interventions.find(params[:intervention_id])
-    @availabilities = calendar.availabilities_for(@intervention)
+    @intervention = calendar.interventions.find(params[:intervention_id])
+    @slots        = calendar.availabilities_for(@intervention)
 
     respond_to do |format|
       format.html
