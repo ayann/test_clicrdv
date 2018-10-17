@@ -11,17 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :intervention_ids %><br>
-    <%= collection_check_boxes(
-      :calendar, :intervention_ids, Intervention.all, :id, :name)
-     %>
+
+  <div class="form-group">
+    <%= f.label :intervals %>
+    <%= f.number_field :intervals, class: "form-control", min: 1 %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :intervention_ids %>
+
+    <%= f.collection_check_boxes(:intervention_ids, Intervention.all, :id, :name) do |b| %>
+      <%= content_tag :div, class: 'form-check' do %>
+        <%= b.check_box(class: "form-check-input") %>
+        <%= b.label(class: "form-check-label") { b.text } %>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

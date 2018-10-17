@@ -1,9 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name :</strong>
-  <%= @calendar.name %>
-</p>
+<div class="row justify-content-md-center mt-5">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        Calendar #<%= @calendar.id %>
+      </div>
 
-<%= link_to 'Edit', edit_admin_calendar_path(@calendar) %> |
-<%= link_to 'Back', admin_calendars_path %>
+      <div class="card-body">
+        <p>
+          <strong>Name :</strong>
+          <%= @calendar.name %>
+        </p>
+
+        <p>
+          <strong>Intervals :</strong>
+          <%= @calendar.intervals %>
+        </p>
+
+        <p>
+          <strong>Intervention Availabilities</strong>
+        </p>
+
+        <dic class="list-group">
+          <% @interventions.each do |intervention, count| %>
+            <%= link_to availabilities_calendar_path(@calendar, intervention), class: 'list-group-item d-flex justify-content-between align-items-center' do %>
+              <%= intervention.name %>
+              <span class="badge badge-success badge-pill"><%= count %></span>
+            <% end %>
+          <% end %>
+        </dic>
+
+
+        <p class="text-center mt-5">
+          <%= link_to 'Edit', edit_admin_calendar_path(@calendar) %> |
+          <%= link_to 'Back', admin_calendars_path %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
