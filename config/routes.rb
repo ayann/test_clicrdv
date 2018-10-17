@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :interventions, only: %i[new create destroy]
 
-  resources :calendars, only: [:show] do
+  resources :calendars, only: [] do
     member do
       get 'availabilities/:intervention_id', action: :availabilities, as: :availabilities
     end

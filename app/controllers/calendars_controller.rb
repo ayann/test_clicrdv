@@ -1,6 +1,4 @@
 class CalendarsController < ApplicationController
-  def show; end
-
   def availabilities
     @intervention = calendar.interventions.find(params[:intervention_id])
     @slots        = calendar.availabilities_for(@intervention)
