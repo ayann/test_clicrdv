@@ -42,6 +42,8 @@ class TimeSlot
   #
   # @return [Array] the availables slots collection
   def availables
+    return all if appointments.blank?
+
     @_availables ||= begin
       all.map do |slot_start_at|
         next unless available?(slot_start_at)
