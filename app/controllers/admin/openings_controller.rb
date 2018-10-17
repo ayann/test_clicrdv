@@ -69,7 +69,7 @@ class Admin::OpeningsController < ApplicationController
   end
 
   def calendar
-    @calendar ||= Calendar.find(params[:calendar_id])
+    @calendar ||= Calendar.includes(:openings).find(params[:calendar_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
