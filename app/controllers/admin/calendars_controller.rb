@@ -9,7 +9,19 @@ class Admin::CalendarsController < ApplicationController
 
   # GET /calendars/1
   # GET /calendars/1.json
-  def show; end
+  def show
+    respond_to do |format|
+      format.html do
+        @interventions = {}.tap do |hash|
+          @calendar.interventions.each do |intervention|
+            hash[intervention] = @calendar.availabilities_for(intervention).length
+          end
+        end
+      end
+
+      format.json
+    end
+  end
 
   # GET /calendars/new
   def new
@@ -68,6 +80,6 @@ class Admin::CalendarsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def calendar_params
-    params.require(:calendar).permit(:name, :intervals)
+    params.require(:calendar).permit(:name, :intervals, intervention_ids: [])
   end
 end
