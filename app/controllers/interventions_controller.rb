@@ -22,6 +22,8 @@ class InterventionsController < ApplicationController
   def destroy
     @intervention = Intervention.find(params[:id])
 
+    @intervention.destroy
+
     respond_to do |format|
       format.html { redirect_to new_intervention_path, notice: 'Intervention was successfully destroyed.' }
       format.json { head :no_content }
